@@ -1,0 +1,233 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Manveer Singh Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single-column editorial dark page; hero with stat strip, then skills, experience timeline, project grid, education, contact. */
+:root {
+  --bg: #0D1416;
+  --surface: #131D20;
+  --line: #243236;
+  --fg: #E7EFED;
+  --muted: #92A6A3;
+  --amber: #E0A44A;
+  --teal: #5CC4B4;
+  --display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--body); font-size: 16px; line-height: 1.6;
+  padding-inline: 20px; padding-block: 0;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+.wrap { max-width: 1040px; margin-inline: auto; }
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin: 0; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1.1; letter-spacing: -0.02em; font-weight: 700; }
+section { padding-block: 72px 0; }
+.sec-head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+
+nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 24px; }
+.mark { font-family: var(--display); font-weight: 800; font-size: 18px; text-decoration: none; letter-spacing: -0.01em; }
+.mark span { color: var(--amber); }
+nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+nav ul a { text-decoration: none; color: var(--muted); font-size: 14px; }
+nav ul a:hover { color: var(--fg); }
+
+.hero { padding-block: 56px 0; display: flex; flex-direction: column; gap: 28px; }
+.hero h1 { font-size: clamp(2.6rem, 8.5vw, 6rem); line-height: 0.98; letter-spacing: -0.035em; font-weight: 800; max-width: 14ch; }
+.hero h1 em { font-style: normal; color: var(--amber); }
+.lede { max-width: 58ch; font-size: 18px; color: var(--muted); margin: 0; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 6px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--line); background: transparent; color: var(--fg); cursor: pointer; font-family: var(--body); }
+.btn.primary { background: var(--amber); border-color: var(--amber); color: #1A1305; }
+.btn:hover { border-color: var(--fg); }
+.btn.primary:hover { background: #ECB65F; border-color: #ECB65F; }
+
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 24px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stat { padding: 22px 16px 22px 0; display: flex; flex-direction: column; gap: 4px; }
+.stat + .stat { padding-left: 20px; border-left: 1px solid var(--line); }
+.stat b { font-family: var(--display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 13px; color: var(--muted); }
+
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.skill { background: var(--bg); padding: 22px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.skill h3 { font-size: 15px; font-weight: 600; font-family: var(--mono); color: var(--amber); letter-spacing: 0.02em; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.chips li { font-size: 13px; padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--fg); background: var(--surface); }
+
+.jobs { display: flex; flex-direction: column; }
+.job { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 12px 40px; padding-block: 28px; border-top: 1px solid var(--line); }
+.job:last-child { border-bottom: 1px solid var(--line); }
+.when { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.job h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+.job h3 span { color: var(--teal); font-weight: 500; }
+.job p { margin: 10px 0 0; color: var(--muted); max-width: 64ch; }
+.job ul { margin: 12px 0 0; padding-left: 18px; color: var(--muted); display: flex; flex-direction: column; gap: 6px; max-width: 68ch; }
+.job li::marker { color: var(--amber); }
+
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.proj { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 10px; min-width: 0; transition: border-color .2s; }
+.proj:hover { border-color: var(--teal); }
+.proj .kind { font-family: var(--mono); font-size: 12px; color: var(--teal); letter-spacing: 0.06em; text-transform: uppercase; }
+.proj h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+.proj p { margin: 0; color: var(--muted); font-size: 15px; }
+.proj .tags { margin-top: auto; padding-top: 6px; font-family: var(--mono); font-size: 12px; color: var(--fg); opacity: .8; }
+.proj.wide { grid-column: 1 / -1; }
+
+.edu { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.edu div { border-top: 2px solid var(--amber); padding-top: 14px; display: flex; flex-direction: column; gap: 2px; }
+.edu h3 { font-size: 19px; font-weight: 700; }
+.edu span { color: var(--muted); font-size: 14px; }
+
+.contact { margin-top: 0; padding-block: 72px; }
+.contact-box { border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: clamp(24px, 5vw, 48px); display: flex; flex-direction: column; gap: 20px; }
+.contact-box h2 { max-width: 18ch; }
+.mail { font-family: var(--mono); font-size: clamp(15px, 3.4vw, 22px); color: var(--amber); word-break: break-all; user-select: all; }
+#copy-note { font-size: 13px; color: var(--teal); min-height: 1.4em; margin: 0; }
+footer { border-top: 1px solid var(--line); padding-block: 24px 32px; color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 760px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat:nth-child(3) { padding-left: 0; border-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .skills, .projects, .edu { grid-template-columns: minmax(0, 1fr); }
+  .job { grid-template-columns: minmax(0, 1fr); }
+  section { padding-top: 56px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .proj { transition: none; } }
+</style>
+
+<div class="wrap">
+  <nav>
+    <a class="mark" href="#top">Manveer<span>.</span>dev</a>
+    <ul>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <p class="label">MERN Stack Developer &middot; Punjab, India</p>
+    <h1>I build <em>real-time</em> web and mobile products.</h1>
+    <p class="lede">Manveer Singh. Frontend roots in React and Next.js, backend in Node.js and Laravel, and React Native for mobile. I ship full-cycle products and stay on to keep them healthy after launch.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">See my projects</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>4.5</b><span>years frontend</span></div>
+      <div class="stat"><b>2</b><span>years backend</span></div>
+      <div class="stat"><b>1.5</b><span>years React Native</span></div>
+      <div class="stat"><b>15+</b><span>full-cycle web solutions</span></div>
+    </div>
+  </header>
+
+  <section id="skills">
+    <div class="sec-head"><p class="label">Stack</p><h2>What I work with</h2></div>
+    <div class="skills">
+      <div class="skill"><h3>Frontend</h3><ul class="chips"><li>React.js</li><li>Next.js</li><li>Redux Toolkit</li><li>React Query</li><li>React Native</li><li>TypeScript</li><li>JavaScript (ES6+)</li><li>HTML5</li><li>CSS3</li><li>Tailwind</li><li>Material UI</li><li>Bootstrap</li><li>React Bootstrap</li></ul></div>
+      <div class="skill"><h3>Backend &amp; APIs</h3><ul class="chips"><li>Node.js</li><li>PHP Laravel</li><li>Express.js</li><li>Socket.io</li><li>Firebase</li></ul></div>
+      <div class="skill"><h3>Databases</h3><ul class="chips"><li>MongoDB</li><li>MySQL</li></ul></div>
+      <div class="skill"><h3>Analytics</h3><ul class="chips"><li>Mixpanel</li><li>Google Analytics</li></ul></div>
+      <div class="skill"><h3>DevOps &amp; Tools</h3><ul class="chips"><li>Git</li><li>GitHub</li><li>Docker</li><li>Jenkins</li><li>AWS</li><li>Azure</li></ul></div>
+      <div class="skill"><h3>Other</h3><ul class="chips"><li>Formik</li><li>REST API integration</li><li>Agile/Scrum</li></ul></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><p class="label">Experience</p><h2>Where I've shipped</h2></div>
+    <div class="jobs">
+      <article class="job">
+        <div class="when">Sep 2025 &ndash; Present</div>
+        <div>
+          <h3>Evomorf <span>/ Software Engineer</span></h3>
+          <p>Full stack developer building scalable web and mobile applications with React, Next.js, PHP Laravel and React Native. End-to-end solutions, performance work and user-friendly interfaces.</p>
+        </div>
+      </article>
+      <article class="job">
+        <div class="when">Aug 2021 &ndash; Jul 2025</div>
+        <div>
+          <h3>Codmi Technologies <span>/ Software Engineer</span></h3>
+          <ul>
+            <li>Developed and maintained high-traffic web platforms with React.js and Next.js.</li>
+            <li>Integrated REST APIs and built real-time features with Socket.io, improving user engagement.</li>
+            <li>Used React Query for server state and caching, cutting API calls by 25%.</li>
+            <li>Added Mixpanel tracking so stakeholders could see how users behave.</li>
+            <li>Built responsive, accessible UIs with Tailwind, Material UI and Bootstrap.</li>
+            <li>Led code reviews and worked with cross-functional teams in Agile sprints.</li>
+            <li>Handled post-deployment support and maintenance, reducing issue resolution time by 20%.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head"><p class="label">Selected work</p><h2>Projects</h2></div>
+    <div class="projects">
+      <article class="proj"><span class="kind">Live streaming platform</span><h3>Glitter</h3><p>Real-time streaming features, with Mixpanel analytics tracking engagement during live streams.</p><span class="tags">React.js &middot; Node.js &middot; Socket.io &middot; Mixpanel</span></article>
+      <article class="proj"><span class="kind">Social network &amp; community</span><h3>PoolsMagic</h3><p>Community features, user authentication and dashboards. Faster pages through Next.js server-side rendering and React Query data fetching.</p><span class="tags">Next.js &middot; React Query</span></article>
+      <article class="proj"><span class="kind">Chat application</span><h3>WebChatz</h3><p>Real-time messaging with user authentication, backed by MongoDB and deployed on Vercel.</p><span class="tags">Socket.io &middot; MongoDB &middot; Vercel</span></article>
+      <article class="proj"><span class="kind">CRM, mobile app &amp; web portal</span><h3>Walkbuy</h3><p>CRM in Next.js, mobile app in React Native and web portal in React.js, on a PHP Laravel and MySQL backend. Redis connects sockets to the app.</p><span class="tags">Next.js &middot; React Native &middot; Laravel &middot; MySQL &middot; Redis</span></article>
+      <article class="proj wide"><span class="kind">Moving services platform</span><h3>OyoMover</h3><p>Website, mobile app and admin dashboard for booking and managing moving services. Firebase notifications, real-time chat with Socket.io and Stripe payments, plus Nodemailer emails and cron jobs for automated reminders and reports.</p><span class="tags">Firebase &middot; Socket.io &middot; Stripe &middot; Nodemailer &middot; Cron</span></article>
+      <article class="proj"><span class="kind">Invoice management</span><h3>DashyDash</h3><p>Dashboard for managing invoices.</p></article>
+      <article class="proj"><span class="kind">Agriculture</span><h3>Map My Crop</h3><p>Crop mapping product.</p></article>
+      <article class="proj wide"><span class="kind">Event management</span><h3>GalaWise</h3><p>Event booking and management in the style of BookMyShow.</p></article>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head"><p class="label">Education</p><h2>Studies</h2></div>
+    <div class="edu">
+      <div><h3>Master of Computer Applications</h3><span>Chandigarh University</span><span>2026 &ndash; 2027 (pursuing)</span></div>
+      <div><h3>Bachelor of Computer Applications</h3><span>Punjabi University, Patiala</span><span>2016 &ndash; 2019</span></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-box">
+      <p class="label">Contact</p>
+      <h2>Have a product to build or maintain?</h2>
+      <div class="mail" id="mail">manabuaal@gmail.com</div>
+      <div class="cta">
+        <button class="btn primary" id="copy" type="button">Copy email address</button>
+        <a class="btn" href="mailto:manabuaal@gmail.com">Open in mail app</a>
+      </div>
+      <p id="copy-note" role="status"></p>
+    </div>
+  </section>
+
+  <footer><span>Manveer Singh</span><span>Languages: Punjabi, Hindi, English</span></footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy');
+  var note = document.getElementById('copy-note');
+  var mail = document.getElementById('mail');
+  btn.addEventListener('click', function () {
+    var text = 'manabuaal@gmail.com';
+    var done = function () { note.textContent = 'Email address copied.'; };
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(mail);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      note.textContent = 'Address selected. Press Ctrl+C or Cmd+C to copy.';
+    };
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
+
+</body></html>
